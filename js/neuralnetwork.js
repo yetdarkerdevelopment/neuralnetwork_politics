@@ -1,5 +1,5 @@
 export function dotProduct(matrix_a, matrix_b) {
-    if (matrix_a.length > 0 && matrix_b.length > 0) {
+    if ((matrix_a.length > 0) && (matrix_b.length > 0)) {
         if (matrix_a[0].length == matrix_b.length) {
             let matrix_c = [];
             for (let i = 0; i < matrix_a.length; i += 1) {
@@ -7,12 +7,12 @@ export function dotProduct(matrix_a, matrix_b) {
                 for (let j = 0; j < matrix_b[0].length; j += 1) {
                     let sum = 0;
                     for (let k = 0; k < matrix_b.length; k += 1) {
-                        sum += matrix_a[i][k] * matrix_b[k][j]
+                        sum += matrix_a[i][k] * matrix_b[k][j];
                     }
-                    matrix_c[matrix_c.length - 1].push(sum)
+                    matrix_c[matrix_c.length - 1].push(sum);
                 }
             }
-            return matrix_c
+            return matrix_c;
         }
     }
     return -1
