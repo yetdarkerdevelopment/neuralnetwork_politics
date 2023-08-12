@@ -1,4 +1,4 @@
-import { dotProduct } from "neuralnetwork.js";
+import { dotProduct } from "./js/neuralnetwork.js";
 
 let mA = [[1, 2], [3, 4]];
 let mB = [[5, 6], [7, 8]];
