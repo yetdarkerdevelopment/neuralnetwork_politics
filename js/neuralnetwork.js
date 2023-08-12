@@ -3,7 +3,6 @@ export function dotProduct(matrix_a, matrix_b) {
         if (matrix_a[0].length == matrix_b.length) {
             let matrix_c = [];
             for (let i = 0; i < matrix_a.length; i += 1) {
-                console.log(i);
                 matrix_c.push([]);
                 for (let j = 0; j < matrix_b[0].length; j += 1) {
                     let sum = 0;
@@ -13,8 +12,6 @@ export function dotProduct(matrix_a, matrix_b) {
                     matrix_c[matrix_c.length - 1].push(sum);
                 }
             }
-            console.log(matrix_c.length);
-            console.log(matrix_c[0].length);
             return matrix_c;
         }
         else {
