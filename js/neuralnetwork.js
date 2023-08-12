@@ -37,6 +37,50 @@ export function transpose(matrix_a) {
     return matrix_b;
 }
 
+export function matrixAdd(matrix_a, matrix_b) {
+    if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b.length == 0)) {
+        for (let i = 0; i < matrix_a.length; i += 1) {
+            for (let j = 0; j < matrix_a[0].length; j += 1) {
+                matrix_a[i][j] += matrix_b[i % matrix_b.length][j % matrix_b[0].length];
+            }
+        }
+    }
+    return matrix_a
+}
+
+export function matrixSubtract(matrix_a, matrix_b) {
+    if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b.length == 0)) {
+        for (let i = 0; i < matrix_a.length; i += 1) {
+            for (let j = 0; j < matrix_a[0].length; j += 1) {
+                matrix_a[i][j] -= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
+            }
+        }
+    }
+    return matrix_a
+}
+
+export function matrixMultiply(matrix_a, matrix_b) {
+    if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b.length == 0)) {
+        for (let i = 0; i < matrix_a.length; i += 1) {
+            for (let j = 0; j < matrix_a[0].length; j += 1) {
+                matrix_a[i][j] *= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
+            }
+        }
+    }
+    return matrix_a
+}
+
+export function matrixDivide(matrix_a, matrix_b) {
+    if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b.length == 0)) {
+        for (let i = 0; i < matrix_a.length; i += 1) {
+            for (let j = 0; j < matrix_a[0].length; j += 1) {
+                matrix_a[i][j] /= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
+            }
+        }
+    }
+    return matrix_a
+}
+
 export class Dense {
     constructor(input_size, output_size) {
         this.input_size = input_size;
