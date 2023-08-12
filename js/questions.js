@@ -1,10 +1,3 @@
-import { dotProduct } from "./neuralnetwork.js";
-
-let mA = [[1, 2], [3, 4]];
-let mB = [[5, 6], [7, 8]];
-
-console.log(dotProduct(mA, mB));
-
 let current_question = -1;
 let answers = [];
 let questions = [
@@ -134,10 +127,10 @@ function backQuestion() {
     }
 }
 
-yesBtn = document.getElementById("yesBtn");
-unsureBtn = document.getElementById("unsureBtn");
-noBtn = document.getElementById("noBtn");
-backBtn = document.getElementById("backBtn");
+let yesBtn = document.getElementById("yesBtn");
+let unsureBtn = document.getElementById("unsureBtn");
+let noBtn = document.getElementById("noBtn");
+let backBtn = document.getElementById("backBtn");
 
 yesBtn.onclick = function () {
     answers.push(0);
