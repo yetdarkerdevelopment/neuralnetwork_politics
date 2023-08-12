@@ -26,6 +26,17 @@ export function dotProduct(matrix_a, matrix_b) {
     }
 }
 
+export function transpose(matrix_a) {
+    let matrix_b = [];
+    for (let i = 0; i < matrix_a[0].length; i += 1) {
+        matrix_b.push([]);
+        for (let j = 0; j < matrix_a.length; j += 1) {
+            matrix_b[matrix_b.length - 1].push(matrix_a[j][i]);
+        }
+    }
+    return matrix_b;
+}
+
 export class Dense {
     constructor(input_size, output_size) {
         this.input_size = input_size;
