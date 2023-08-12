@@ -78,6 +78,21 @@ export function matrixDivide(matrix_a, matrix_b) {
     return matrix_a
 }
 
+export function mse(actual, y) {
+    let before_sum = matrixMultiply(matrixSubtract(actual, y), matrixSubtract(actual, y));
+    let after_sum = 0;
+    for (let i = 0; i < before_sum.length; i += 1) {
+        for (let j = 0; j < before_sum[0].length; j += 1) {
+            after_sum += before_sum[i][j]
+        }
+    }
+    return after_sum / actual.length / actual[0].length;
+}
+
+export function msePrime(actual, y) {
+    return matrixDivide(matrixMultiply(matrixSubtract(actual, y), [[2]]), [[actual.length * actual[0].length]])
+}
+
 export class Dense {
     constructor(input_size, output_size) {
         this.input_size = input_size;
@@ -87,9 +102,49 @@ export class Dense {
         for (let o = 0; o < output_size; o += 1) {
             this.weights.push([]);
             for (let i = 0; i < input_size; i +=1) {
-                this.weights[this.weights.length - 1].push([Math.random() - 0.5 / this.input_size]);
+                this.weights[this.weights.length - 1].push([(Math.random() - 0.5) / this.input_size]);
             }
             this.biases.push([Math.random() - 0.5]);
         }
+        this.x = [];
+        this.z = [];
     }
+
+    forward(inputs) {
+        this.x = inputs;
+        this.z = matrixAdd(dotProduct(this.weights, this.x), this.biases);
+        return this.z;
+    }
+
+    backward(output_gradient, lr) {
+        let weight_gradient = dotProduct(output_gradient, transpose(this.x));
+        let input_gradient = dotProduct(transpose(this.weights), output_gradient);
+        this.weights = matrixSubtract(this.weights, (matrixMultiply(weight_gradient, [[lr]])));
+        this.biases = matrixSubtract(this.biases, (matrixMultiply(output_gradient, [[lr]])));
+        return input_gradient;
+    }
+
+}
+
+export class leakyRelu {
+    forward(inputs) {
+        for (let i = 0; i < inputs.length; i += 1) {
+            for (let j = 0; j < inputs[0].length; j += 1) {
+                if (inputs[i][j] < 0) {
+                    inputs[i][j] /= 0.01
+                }
+            }
+        }
+    }
+
+    backward(output_gradient, lr) {
+        for (let i = 0; i < output_gradient.length; i += 1) {
+            for (let j = 0; j < output_gradient[0].length; j += 1) {
+                if (output_gradient[i][j] < 0) {
+                    output_gradient[i][j] /= 0.01
+                }
+            }
+        }
+    }
+
 }
