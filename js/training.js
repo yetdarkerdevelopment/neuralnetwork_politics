@@ -104,8 +104,6 @@ for (let i = 0; i < xy.length; i += 1) {
    }
 }
 
-console.log(xy);
-
 // TRAINING
 let loss = 0;
 let count = 0;
@@ -115,13 +113,10 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
    count = 0;
    for (let i = 0; i < xy.length; i += 1) {
       count += 1
-      console.log(count);
       let x = xy[i][1];
       let y = xy[i][0];
-      console.log(x);
 
       for (let layer = 0; layer < matchLayers.length; layer += 1) {
-         console.log(layer);
          x = matchLayers[layer].forward(x);
       }
       
@@ -129,10 +124,12 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
       gradient = msePrime(x, y);
 
       for (let layer = matchLayers.length - 1; layer >= 0; layer -= 1) {
-         console.log(layer);
          gradient = matchLayers[layer].backward(gradient, lr);
       }
    }
    console.log(loss / count);
+   console.log(loss);
+   console.log(count);
+   console.log(x[0]);
 }
 
