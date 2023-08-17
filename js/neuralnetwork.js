@@ -81,11 +81,13 @@ export function matrixDivide(matrix_a, matrix_b) {
 export function mse(actual, y) {
     let before_sum = matrixMultiply(matrixSubtract(actual, y), matrixSubtract(actual, y));
     let after_sum = 0;
+    console.log(before_sum[0]);
     for (let i = 0; i < before_sum.length; i += 1) {
         for (let j = 0; j < before_sum[0].length; j += 1) {
             after_sum += before_sum[i][j]
         }
     }
+    console.log(after_sum);
     return after_sum / actual.length / actual[0].length;
 }
 
