@@ -97,19 +97,38 @@ for (let i = 0; i < xy.length; i += 1) {
    xy[i][0] = [];
    xy[i][1] = [];
    for (let j = 0; j < 300; j += 1) {
-      xy[i][1].push(x[j])
+      xy[i][1].push(x[j]);
    }
    for (let j = 0; j < matchIdeologies.length; j += 1) {
-      xy[i][0].push(y[j])
+      xy[i][0].push(y[j]);
    }
 }
 
 console.log(xy);
 
 // TRAINING
+let loss = 0;
+let count = 0;
+let gradient = 0;
 for (let epoch = 0; epoch < epochs; epoch += 1) {
+   loss = 0;
+   count = 0;
    for (let i = 0; i < xy.length; i += 1) {
+      count += 1
+      let x = xy[i][1];
+      let y = xy[i][0];
 
+      for (let layer = 0; layer < matchLayers.length; layer += 1) {
+         x = matchLayers[layer].forward(x);
+      }
+      
+      loss += mse(x, y);
+      gradient = mse_prime(x, y);
+
+      for (let layer = matchIdeologies.length - 1; layer >= 0; layer -= 1) {
+         gradient = matchLayers[layer].backward(gradient, lr);
+      }
    }
+   console.log(loss / count);
 }
 
