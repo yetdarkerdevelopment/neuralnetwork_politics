@@ -36,8 +36,10 @@ let xy = [
 
 // ONEHOT ENCODE DATA
 for (let i = 0; i < xy.length; i += 1) {
+   console.log(i);
    let x_pre = xy[i][1];
    let y_pre = matchIdeologies.indexOf(xy[i][0]);
+   console.log(x_pre);
    for (let j = 0; j < x_pre.length; j += 1) {
       if (x_pre[j] == 6) {
          x_pre[j] = Math.floor(Math.random() * 3);
