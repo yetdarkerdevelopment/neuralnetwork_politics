@@ -137,6 +137,7 @@ export class leakyRelu {
                 }
             }
         }
+        return inputs;
     }
 
     backward(output_gradient, lr) {
@@ -147,6 +148,7 @@ export class leakyRelu {
                 }
             }
         }
+        return output_gradient;
     }
 
 }
