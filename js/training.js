@@ -130,6 +130,4 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
    console.log(loss / count);
    console.log(loss);
    console.log(count);
-   console.log(x[0]);
 }
-
