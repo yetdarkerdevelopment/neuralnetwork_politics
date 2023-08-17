@@ -79,19 +79,19 @@ for (let i = 0; i < xy.length; i += 1) {
    let x = [];
    for (let j = 0; j < x_pre.length; j += 1) {
       if (x_pre[j] == 0) {
-         x.push[1];
-         x.push[0];
-         x.push[0];
+         x.push([1]);
+         x.push([0]);
+         x.push([0]);
       }
       else if (x_pre[j] == 1) {
-         x.push[0];
-         x.push[1];
-         x.push[0];
+         x.push([0]);
+         x.push([1]);
+         x.push([0]);
       }
       else {
-         x.push[0];
-         x.push[0];
-         x.push[1]; 
+         x.push([0]);
+         x.push([0]);
+         x.push([1]); 
       }
    }
    xy[i][0] = [];
@@ -118,6 +118,7 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
       console.log(count);
       let x = xy[i][1];
       let y = xy[i][0];
+      console.log(x);
 
       for (let layer = 0; layer < matchLayers.length; layer += 1) {
          console.log(layer);
