@@ -113,7 +113,7 @@ export class Dense {
     forward(inputs) {
         this.x = inputs;
         console.log(inputs);
-        console.log(weights);
+        console.log(this.weights);
         this.z = matrixAdd(dotProduct(this.weights, this.x), this.biases);
         return this.z;
     }
