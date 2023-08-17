@@ -128,7 +128,7 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
       loss += mse(x, y);
       gradient = msePrime(x, y);
 
-      for (let layer = matchIdeologies.length - 1; layer >= 0; layer -= 1) {
+      for (let layer = matchLayers.length - 1; layer >= 0; layer -= 1) {
          console.log(layer);
          gradient = matchLayers[layer].backward(gradient, lr);
       }
