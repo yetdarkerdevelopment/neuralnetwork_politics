@@ -35,48 +35,75 @@ export function transpose(matrix_a) {
 }
 
 export function matrixAdd(matrix_a, matrix_b) {
-    
+    let matrix_c = [];
+    for (let i = 0; i < matrix_a.length; i += 1) {
+        matrix_c.push([])
+        for (let j = 0; j < matrix_a[0].length; j += 1) {
+            matrix_c[i][j] = matrix_a[i][j]
+        }
+    }
     if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b[0].length == 0)) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_a[i][j] += matrix_b[i % matrix_b.length][j % matrix_b[0].length];
+                matrix_c[i][j] += matrix_b[i % matrix_b.length][j % matrix_b[0].length];
             }
         }
     }
-    return matrix_a
+    return matrix_c
 }
 
 export function matrixSubtract(matrix_a, matrix_b) {
+    let matrix_c = [];
+    for (let i = 0; i < matrix_a.length; i += 1) {
+        matrix_c.push([])
+        for (let j = 0; j < matrix_a[0].length; j += 1) {
+            matrix_c[i][j] = matrix_a[i][j]
+        }
+    }
     if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b[0].length == 0)) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_a[i][j] -= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
+                matrix_c[i][j] -= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
             }
         }
     }
-    return matrix_a
+    return matrix_c
 }
 
 export function matrixMultiply(matrix_a, matrix_b) {
+    let matrix_c = [];
+    for (let i = 0; i < matrix_a.length; i += 1) {
+        matrix_c.push([])
+        for (let j = 0; j < matrix_a[0].length; j += 1) {
+            matrix_c[i][j] = matrix_a[i][j]
+        }
+    }
     if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b[0].length == 0)) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_a[i][j] *= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
+                matrix_c[i][j] *= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
             }
         }
     }
-    return matrix_a
+    return matrix_c
 }
 
 export function matrixDivide(matrix_a, matrix_b) {
+    let matrix_c = [];
+    for (let i = 0; i < matrix_a.length; i += 1) {
+        matrix_c.push([])
+        for (let j = 0; j < matrix_a[0].length; j += 1) {
+            matrix_c[i][j] = matrix_a[i][j]
+        }
+    }
     if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b[0].length == 0)) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_a[i][j] /= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
+                matrix_c[i][j] /= matrix_b[i % matrix_b.length][j % matrix_b[0].length];
             }
         }
     }
-    return matrix_a
+    return matrix_c
 }
 
 export function mse(actual, y) {
