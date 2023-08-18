@@ -25,3 +25,7 @@ li {
 button {
     border: 1px solid #6600d2;
 }
+
+#question {
+    font-size: 26px;
+}
