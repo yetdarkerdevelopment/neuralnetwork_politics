@@ -110,8 +110,6 @@ let count = 0;
 let gradient = 0;
 console.log("BEGAN");
 for (let epoch = 0; epoch < epochs; epoch += 1) {
-   loss = 0;
-   count = 0;
    for (let i = 0; i < xy.length; i += 1) {
       count += 1
       let x = xy[i][1];
@@ -131,4 +129,6 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
       console.log("ONE SAMPLE");
    }
    console.log(loss / count, loss, count, epoch);
+   loss = 0;
+   count = 0;
 }

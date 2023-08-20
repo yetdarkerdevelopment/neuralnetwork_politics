@@ -110,6 +110,7 @@ export function mse(actual, y) {
     let diff = matrixSubtract(actual, y);
     let before_sum = matrixMultiply(diff, diff);
     let after_sum = 0;
+    console.log(before_sum);
     for (let i = 0; i < before_sum.length; i += 1) {
         for (let j = 0; j < before_sum[0].length; j += 1) {
             after_sum += before_sum[i][j]
