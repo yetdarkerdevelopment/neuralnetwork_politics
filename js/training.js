@@ -130,5 +130,5 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
       }
       console.log("ONE SAMPLE");
    }
-   console.log(loss / count, loss, count);
+   console.log(loss / count, loss, count, epoch);
 }
