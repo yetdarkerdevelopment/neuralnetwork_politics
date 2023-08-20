@@ -115,7 +115,8 @@ export function mse(actual, y) {
             after_sum += before_sum[i][j]
         }
     }
-    return after_sum / actual.length / actual[0].length;
+    console.log(after_sum / actual.length / actual[0].length);
+    return (after_sum / actual.length / actual[0].length);
 }
 
 export function msePrime(actual, y) {
