@@ -109,6 +109,7 @@ let loss = 0;
 let count = 0;
 let gradient = 0;
 console.log("BEGAN");
+console.log(xy[0][0])
 for (let epoch = 0; epoch < epochs; epoch += 1) {
    for (let i = 0; i < xy.length; i += 1) {
       count += 1
