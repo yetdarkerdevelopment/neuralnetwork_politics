@@ -115,11 +115,12 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
       count += 1
       let x = xy[i][1];
       let y = xy[i][0];
-      console.log(x[0])
       for (let layer = 0; layer < matchLayers.length; layer += 1) {
          x = matchLayers[layer].forward(x);
       }
       
+      console.log(x.length, x[0].length);
+      console.log(y.length, y[0].length);
       loss += mse(x, y);
       gradient = msePrime(x, y);
 
@@ -127,7 +128,5 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
          gradient = matchLayers[layer].backward(gradient, lr);
       }
    }
-   console.log(loss / count);
-   console.log(loss);
-   console.log(count);
+   console.log(loss / count, loss, count);
 }
