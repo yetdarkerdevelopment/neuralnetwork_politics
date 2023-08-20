@@ -105,12 +105,12 @@ for (let i = 0; i < xy.length; i += 1) {
    }
 }
 
+console.log(xy[0][1].indexOf([1]));
+
 // TRAINING
 let loss = 0;
 let count = 0;
 let gradient = 0;
-console.log("BEGAN");
-console.log(xy[0][0])
 for (let epoch = 0; epoch < epochs; epoch += 1) {
    for (let i = 0; i < xy.length; i += 1) {
       count += 1
@@ -120,15 +120,12 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
          x = matchLayers[layer].forward(x);
       }
 
-      console.log(x.length, x[0].length);
-      console.log(y.length, y[0].length);
       loss += mse(x, y);
       gradient = msePrime(x, y);
 
       for (let layer = matchLayers.length - 1; layer >= 0; layer -= 1) {
          gradient = matchLayers[layer].backward(gradient, lr);
       }
-      console.log("ONE SAMPLE");
    }
    console.log(loss / count, loss, count, epoch);
    loss = 0;
