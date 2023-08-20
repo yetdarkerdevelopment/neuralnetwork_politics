@@ -108,6 +108,7 @@ for (let i = 0; i < xy.length; i += 1) {
 let loss = 0;
 let count = 0;
 let gradient = 0;
+console.log("BEGAN");
 for (let epoch = 0; epoch < epochs; epoch += 1) {
    loss = 0;
    count = 0;
@@ -118,7 +119,7 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
       for (let layer = 0; layer < matchLayers.length; layer += 1) {
          x = matchLayers[layer].forward(x);
       }
-      
+
       console.log(x.length, x[0].length);
       console.log(y.length, y[0].length);
       loss += mse(x, y);
@@ -127,6 +128,7 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
       for (let layer = matchLayers.length - 1; layer >= 0; layer -= 1) {
          gradient = matchLayers[layer].backward(gradient, lr);
       }
+      console.log("ONE SAMPLE");
    }
    console.log(loss / count, loss, count);
 }
