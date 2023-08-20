@@ -70,37 +70,37 @@ for (let i = 0; i < xy.length; i += 1) {
    let y = [];
    for (let j = 0; j < matchIdeologies.length; j += 1) {
       if (y_pre == j) {
-         y.push([1]);
+         y.push(1);
       }
       else {
-         y.push([0]);
+         y.push(0);
       }
    }
    let x = [];
    for (let j = 0; j < x_pre.length; j += 1) {
       if (x_pre[j] == 0) {
-         x.push([1]);
-         x.push([0]);
-         x.push([0]);
+         x.push(1);
+         x.push(0);
+         x.push(0);
       }
       else if (x_pre[j] == 1) {
-         x.push([0]);
-         x.push([1]);
-         x.push([0]);
+         x.push(0);
+         x.push(1);
+         x.push(0);
       }
       else {
-         x.push([0]);
-         x.push([0]);
-         x.push([1]); 
+         x.push(0);
+         x.push(0);
+         x.push(1); 
       }
    }
    xy[i][0] = [];
    xy[i][1] = [];
    for (let j = 0; j < 300; j += 1) {
-      xy[i][1].push(x[j]);
+      xy[i][1].push([x[j]]);
    }
    for (let j = 0; j < matchIdeologies.length; j += 1) {
-      xy[i][0].push(y[j]);
+      xy[i][0].push([y[j]]);
    }
 }
 
