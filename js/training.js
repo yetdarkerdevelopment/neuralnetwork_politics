@@ -4,7 +4,7 @@ import {Dense, leakyRelu, mse, msePrime} from "./neuralnetwork.js"
 let epochs = 10;
 let lr = 0.01;
 
-let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 100), new leakyRelu()];
+let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 7), new leakyRelu()];
 
 let matchIdeologies = ["NULLISM", "APOLITICISM", "RIGHT-LIBERTARIANISM", "FASCISM", "HITLER'S NAZISM", "ANARCHO-COMMUNISM", "SOCIAL DEMOCRACY"]
 // 0 - YES, 1 - UNSURE, 2 - NO, 3 - YES/UNSURE, 4 - UNSURE/NO, 5 - YES/NO, 6 - YES/UNSURE/NO
