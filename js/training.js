@@ -108,8 +108,10 @@ for (let i = 0; i < xy.length; i += 1) {
       xy_post[i][0].push([y[j]]);
    }
 }
-
+console.log(xy)
 console.log(xy[0][1].indexOf([1]));
+console.log(xy[0][0].indexOf([1]));
+xy = xy_post;
 
 // TRAINING
 let loss = 0;
