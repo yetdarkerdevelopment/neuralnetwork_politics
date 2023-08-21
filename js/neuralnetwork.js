@@ -135,9 +135,9 @@ export class Dense {
         for (let o = 0; o < output_size; o += 1) {
             this.weights.push([]);
             for (let i = 0; i < input_size; i +=1) {
-                this.weights[this.weights.length - 1].push((Math.random() - 0.5) / this.input_size);
+                this.weights[this.weights.length - 1].push((Math.random() - 0.5) / this.input_size / 10);
             }
-            this.biases.push([Math.random() - 0.5]);
+            this.biases.push([(Math.random() - 0.5) / 10]);
         }
         this.x = [];
         this.z = [];
