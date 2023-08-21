@@ -111,19 +111,14 @@ export function matrixDivide(matrix_a, matrix_b) {
 }
 
 export function mse(actual, y) {
-    console.log(actual.length, actual[0].length)
-    console.log(y.length, y[0].length)
     let diff = matrixSubtract(actual, y);
-    console.log(diff);
     let before_sum = matrixMultiply(diff, diff);
     let after_sum = 0;
-    console.log(before_sum);
     for (let i = 0; i < before_sum.length; i += 1) {
         for (let j = 0; j < before_sum[0].length; j += 1) {
             after_sum += before_sum[i][j]
         }
     }
-    console.log(after_sum / actual.length / actual[0].length);
     return (after_sum / actual.length / actual[0].length);
 }
 
@@ -140,7 +135,7 @@ export class Dense {
         for (let o = 0; o < output_size; o += 1) {
             this.weights.push([]);
             for (let i = 0; i < input_size; i +=1) {
-                this.weights[this.weights.length - 1].push((Math.random() - 0.5));
+                this.weights[this.weights.length - 1].push((Math.random() - 0.5) / this.input_size);
             }
             this.biases.push([Math.random() - 0.5]);
         }
