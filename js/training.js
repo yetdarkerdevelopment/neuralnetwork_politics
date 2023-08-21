@@ -96,11 +96,9 @@ for (let i = 0; i < xy.length; i += 1) {
          x.push(1); 
       }
    }
-   for (let j = 0; j < xy.length; j += 1) {
-      xy_post.push([])
-      xy_post[xy_post.length - 1].push([])
-      xy_post[xy_post.length - 1].push([])
-   }
+   xy_post.push([])
+   xy_post[xy_post.length - 1].push([])
+   xy_post[xy_post.length - 1].push([])
    for (let j = 0; j < 300; j += 1) {
       xy_post[i][1].push([x[j]]);
    }
@@ -108,10 +106,11 @@ for (let i = 0; i < xy.length; i += 1) {
       xy_post[i][0].push([y[j]]);
    }
 }
+
+xy = xy_post;
 console.log(xy)
 console.log(xy[0][1].indexOf([1]));
 console.log(xy[0][0].indexOf([1]));
-xy = xy_post;
 
 // TRAINING
 let loss = 0;
