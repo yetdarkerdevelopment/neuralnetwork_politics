@@ -63,11 +63,11 @@ export function matrixSubtract(matrix_a, matrix_b) {
     if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b[0].length == 0)) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             for (let j = 0; j < matrix_a[0].length; j += 1) {
+                console.log(matrix_a[i][j] - matrix_b[i % matrix_b.length][j % matrix_b[0].length])
                 matrix_c[i][j].push(matrix_a[i][j] - matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
             }
         }
     }
-    console.log(matrix_c);
     return matrix_c
 }
 
@@ -109,7 +109,6 @@ export function matrixDivide(matrix_a, matrix_b) {
 
 export function mse(actual, y) {
     let diff = matrixSubtract(actual, y);
-    console.log(diff);
     let before_sum = matrixMultiply(diff, diff);
     let after_sum = 0;
     // console.log(before_sum);
