@@ -195,7 +195,7 @@ export class leakyRelu {
         for (let i = 0; i < output_gradient.length; i += 1) {
             for (let j = 0; j < output_gradient[0].length; j += 1) {
                 if (output_gradient[i][j] < 0) {
-                    input_gradient[i][j] = output_gradient[i][j] * 0.01;
+                    input_gradient[i][j].push(output_gradient[i][j] * 0.01);
                 }
                 else {
                     input_gradient[i][j].push(output_gradient[i][j]);
