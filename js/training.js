@@ -32,6 +32,7 @@ let xy = [
            [2, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 2, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 0, 2, 2, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 0, 2, 2, 2, 2, 0, 2, 2, 0, 
             2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 2, 0, 0, 0, 0, 0, 0]]
         ]
+let xy_post = []
 // MORE IDEOLOGIES WILL BE ADDED IN THE FUTURE
 
 // ONEHOT ENCODE DATA
@@ -95,13 +96,16 @@ for (let i = 0; i < xy.length; i += 1) {
          x.push(1); 
       }
    }
-   xy[i][0] = [];
-   xy[i][1] = [];
+   for (let j = 0; j < xy.length; j += 1) {
+      xy_post.push([])
+      xy_post[xy_post.length - 1].push([])
+      xy_post[xy_post.length - 1].push([])
+   }
    for (let j = 0; j < 300; j += 1) {
-      xy[i][1].push([x[j]]);
+      xy_post[i][1].push([x[j]]);
    }
    for (let j = 0; j < matchIdeologies.length; j += 1) {
-      xy[i][0].push([y[j]]);
+      xy_post[i][0].push([y[j]]);
    }
 }
 
