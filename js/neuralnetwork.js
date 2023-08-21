@@ -40,12 +40,7 @@ export function matrixAdd(matrix_a, matrix_b) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             matrix_c.push([])
             for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_c[matrix_c.length - 1].push([])
-            }
-        }
-        for (let i = 0; i < matrix_a.length; i += 1) {
-            for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_c[i][j].push(matrix_a[i][j] + matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
+                matrix_c[i].push(matrix_a[i][j] + matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
             }
         }
         return matrix_c
@@ -59,12 +54,7 @@ export function matrixSubtract(matrix_a, matrix_b) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             matrix_c.push([])
             for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_c[matrix_c.length - 1].push([])
-            }
-        }
-        for (let i = 0; i < matrix_a.length; i += 1) {
-            for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_c[i][j].push(matrix_a[i][j] - matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
+                matrix_c[i].push(matrix_a[i][j] - matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
             }
         }
         return matrix_c
@@ -78,12 +68,7 @@ export function matrixMultiply(matrix_a, matrix_b) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             matrix_c.push([])
             for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_c[matrix_c.length - 1].push([])
-            }
-        }
-        for (let i = 0; i < matrix_a.length; i += 1) {
-            for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_c[i][j].push(matrix_a[i][j] * matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
+                matrix_c[i].push(matrix_a[i][j] * matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
             }
         }
         return matrix_c
@@ -97,12 +82,7 @@ export function matrixDivide(matrix_a, matrix_b) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             matrix_c.push([])
             for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_c[matrix_c.length - 1].push([])
-            }
-        }
-        for (let i = 0; i < matrix_a.length; i += 1) {
-            for (let j = 0; j < matrix_a[0].length; j += 1) {
-                matrix_c[i][j].push(matrix_a[i][j] - matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
+                matrix_c[i].push(matrix_a[i][j] / matrix_b[i % matrix_b.length][j % matrix_b[0].length]);
             }
         }
         return matrix_c
@@ -168,16 +148,11 @@ export class leakyRelu {
         for (let i = 0; i < inputs.length; i += 1) {
             outputs.push([]);
             for (let j = 0; j < inputs[0].length; j += 1) {
-                outputs[i].push([]);
-            }
-        }
-        for (let i = 0; i < inputs.length; i += 1) {
-            for (let j = 0; j < inputs[0].length; j += 1) {
                 if (inputs[i][j] < 0) {
-                    outputs[i][j].push(inputs[i][j] * 0.01);
+                    outputs[i].push(inputs[i][j] * 0.01);
                 }
                 else {
-                    outputs[i][j].push(inputs[i][j]);
+                    outputs[i].push(inputs[i][j]);
                 }
             }
         }
@@ -189,16 +164,11 @@ export class leakyRelu {
         for (let i = 0; i < output_gradient.length; i += 1) {
             input_gradient.push([]);
             for (let j = 0; j < output_gradient[0].length; j += 1) {
-                input_gradient[i].push([]);
-            }
-        }
-        for (let i = 0; i < output_gradient.length; i += 1) {
-            for (let j = 0; j < output_gradient[0].length; j += 1) {
                 if (output_gradient[i][j] < 0) {
-                    input_gradient[i][j].push(output_gradient[i][j] * 0.01);
+                    input_gradient[i].push(output_gradient[i][j] * 0.01);
                 }
                 else {
-                    input_gradient[i][j].push(output_gradient[i][j]);
+                    input_gradient[i].push(output_gradient[i][j]);
                 }
             }
         }
