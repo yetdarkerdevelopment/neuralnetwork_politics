@@ -161,25 +161,39 @@ export class Dense {
 
 export class leakyRelu {
     forward(inputs) {
+        let outputs = [];
+        for (let i = 0; i < inputs.length; i += 1) {
+            outputs.push([]);
+            for (let j = 0; j < inputs[0].length; j += 1) {
+                outputs[i].push([]);
+            }
+        }
         for (let i = 0; i < inputs.length; i += 1) {
             for (let j = 0; j < inputs[0].length; j += 1) {
                 if (inputs[i][j] < 0) {
-                    inputs[i][j] /= 0.01
+                    outputs[i][j] = inputs[i][j] * 0.01;
                 }
             }
         }
-        return inputs;
+        return outputs;
     }
 
     backward(output_gradient, lr) {
+        let input_gradient = [];
+        for (let i = 0; i < output_gradient.length; i += 1) {
+            input_gradient.push([]);
+            for (let j = 0; j < output_gradient[0].length; j += 1) {
+                input_gradient[i].push([]);
+            }
+        }
         for (let i = 0; i < output_gradient.length; i += 1) {
             for (let j = 0; j < output_gradient[0].length; j += 1) {
                 if (output_gradient[i][j] < 0) {
-                    output_gradient[i][j] /= 0.01
+                    input_gradient[i][j] = output_gradient[i][j] * 0.01;
                 }
             }
         }
-        return output_gradient;
+        return input_gradient;
     }
 
 }
