@@ -107,7 +107,9 @@ export function matrixDivide(matrix_a, matrix_b) {
 }
 
 export function mse(actual, y) {
-    let before_sum = matrixMultiply(matrixSubtract(actual, y), matrixSubtract(actual, y));
+    let diff = matrixSubtract(actual, y);
+    console.log(diff);
+    let before_sum = matrixMultiply(diff, diff);
     let after_sum = 0;
     console.log(before_sum);
     for (let i = 0; i < before_sum.length; i += 1) {
