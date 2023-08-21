@@ -97,6 +97,7 @@ export function matrixDivide(matrix_a, matrix_b) {
             matrix_c[matrix_c.length - 1].push([])
         }
     }
+    console.log(matrix_a);
     if ((matrix_a.length % matrix_b.length == 0) && (matrix_a[0].length % matrix_b[0].length == 0)) {
         for (let i = 0; i < matrix_a.length; i += 1) {
             for (let j = 0; j < matrix_a[0].length; j += 1) {
