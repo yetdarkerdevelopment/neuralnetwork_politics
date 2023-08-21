@@ -174,7 +174,10 @@ export class leakyRelu {
         for (let i = 0; i < inputs.length; i += 1) {
             for (let j = 0; j < inputs[0].length; j += 1) {
                 if (inputs[i][j] < 0) {
-                    outputs[i][j] = inputs[i][j] * 0.01;
+                    outputs[i][j].push(inputs[i][j] * 0.01);
+                }
+                else {
+                    outputs[i][j].push(inputs[i][j]);
                 }
             }
         }
@@ -193,6 +196,9 @@ export class leakyRelu {
             for (let j = 0; j < output_gradient[0].length; j += 1) {
                 if (output_gradient[i][j] < 0) {
                     input_gradient[i][j] = output_gradient[i][j] * 0.01;
+                }
+                else {
+                    input_gradient[i][j].push(output_gradient[i][j]);
                 }
             }
         }
