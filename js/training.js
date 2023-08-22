@@ -8,7 +8,7 @@ let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 7), new 
 
 let matchIdeologies = ["NULLISM", "APOLITICISM", "RIGHT-LIBERTARIANISM", "FASCISM", "HITLER'S NAZISM", "ANARCHO-COMMUNISM", "SOCIAL DEMOCRACY"]
 // 0 - YES, 1 - UNSURE, 2 - NO, 3 - YES/UNSURE, 4 - UNSURE/NO, 5 - YES/NO, 6 - YES/UNSURE/NO
-//           1      2      3      4      5      6      7      8      9      0      1      2      3      4      5      6      7      8      9      0      1      2      3      4      5      6      7      8      9      0      1      2      3      4      5      6      7      8      9      0      1      2      3      4      5      6      7      8      9      0      1      2      3      4      5      6      7      8      9      0      1      2      3      4      5      6      7      8      9      0      1      2      3      4      5      6      7      8      9      0      
+//          1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0      
 let xy = [
           ["SOCIAL DEMOCRACY",
            [6, 2, 6, 6, 0, 0, 6, 6, 0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 6, 6, 6, 6, 6, 6, 6, 2, 0, 2, 2, 6, 6, 6, 0, 6, 6, 2, 6, 6, 6, 6, 6, 6, 6, 2, 6, 2, 2, 1, 2, 6, 2, 6, 6, 6, 6, 6, 6, 2, 2, 6, 6, 6, 6, 6, 2, 2, 2, 6, 6, 6, 6, 2, 0, 2, 6, 6, 6, 2, 2, 6, 
@@ -33,7 +33,12 @@ let xy = [
             2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 2, 0, 0, 0, 0, 0, 0]]
         ]
 let xy_post = []
-// MORE IDEOLOGIES WILL BE ADDED IN THE FUTURE
+
+for (let i = 0; i < xy.length; i += 1) {
+   for (let j = 0; j < 30; j += 1) {
+      xy_dup.push([xy[i][0], [...xy[i][0]]])
+   }
+}
 
 // ONEHOT ENCODE DATA
 for (let i = 0; i < xy.length; i += 1) {
