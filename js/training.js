@@ -34,6 +34,7 @@ let xy = [
         ]
 let xy_post = []
 
+let xy_dup = []
 for (let i = 0; i < xy.length; i += 1) {
    for (let j = 0; j < 30; j += 1) {
       xy_dup.push([xy[i][0], [...xy[i][0]]])
