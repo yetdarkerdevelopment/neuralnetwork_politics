@@ -2,7 +2,7 @@ import {Dense, leakyRelu, mse, msePrime} from "./neuralnetwork.js"
 
 // HYPERPARAMETERS
 let epochs = 100;
-let lr = 0.1;
+let lr = 0.5;
 
 let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 7), new leakyRelu()];
 
@@ -131,6 +131,7 @@ for (let epoch = 0; epoch < epochs; epoch += 1) {
          x = matchLayers[layer].forward(x);
       }
 
+      console.log(x);
       loss += mse(x, y);
       gradient = msePrime(x, y);
 
