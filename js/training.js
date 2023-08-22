@@ -1,12 +1,13 @@
 import {Dense, leakyRelu, mse, msePrime} from "./neuralnetwork.js"
 
 // HYPERPARAMETERS
-let epochs = 1000;
+let epochs = 400;
 let lr = 0.2;
 
-let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 100), new leakyRelu(), new Dense(100, 9), new leakyRelu()];
-
 let matchIdeologies = ["NULLISM", "APOLITICISM", "RIGHT-LIBERTARIANISM", "FASCISM", "HITLER'S NAZISM", "ANARCHO-COMMUNISM", "SOCIAL DEMOCRACY", "BLEEDING HEART LIBERTARIANISM", "NEOCONSERVATISM"]
+
+let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 100), new leakyRelu(), new Dense(100, matchIdeologies.length), new leakyRelu()];
+
 // 0 - YES, 1 - UNSURE, 2 - NO, 3 - YES/UNSURE, 4 - UNSURE/NO, 5 - YES/NO, 6 - YES/UNSURE/NO
 //          1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0      
 let xy = [["NEOCONSERVATISM",
@@ -45,6 +46,7 @@ for (let i = 0; i < xy.length; i += 1) {
       xy_dup.push([xy[i][0], [...xy[i][0]]])
    }
 }
+xy = xy_dup;
 
 // ONEHOT ENCODE DATA
 for (let i = 0; i < xy.length; i += 1) {
