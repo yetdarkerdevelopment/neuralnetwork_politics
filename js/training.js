@@ -4,12 +4,17 @@ import {Dense, leakyRelu, mse, msePrime} from "./neuralnetwork.js"
 let epochs = 100;
 let lr = 0.2;
 
-let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 7), new leakyRelu()];
+let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 9), new leakyRelu()];
 
-let matchIdeologies = ["NULLISM", "APOLITICISM", "RIGHT-LIBERTARIANISM", "FASCISM", "HITLER'S NAZISM", "ANARCHO-COMMUNISM", "SOCIAL DEMOCRACY"]
+let matchIdeologies = ["NULLISM", "APOLITICISM", "RIGHT-LIBERTARIANISM", "FASCISM", "HITLER'S NAZISM", "ANARCHO-COMMUNISM", "SOCIAL DEMOCRACY", "BLEEDING HEART LIBERTARIANISM", "NEOCONSERVATISM"]
 // 0 - YES, 1 - UNSURE, 2 - NO, 3 - YES/UNSURE, 4 - UNSURE/NO, 5 - YES/NO, 6 - YES/UNSURE/NO
 //          1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0      
-let xy = [
+let xy = [["NEOCONSERVATISM",
+           [2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 6, 2, 6, 6, 6, 0, 0, 2, 2, 2, 2, 0, 2, 2, 6, 2, 2, 0, 0, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 1, 2, 2, 2, 2, 0, 2, 0, 2, 6, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 1, 1, 0, 
+            0, 2, 2, 2, 2, 0, 2, 2, 0, 0, 2, 0, 2, 0, 6, 6, 2, 2, 2, 2]],
+          ["BLEEDING HEART LIBERTARIANISM",
+           [0, 2, 2, 2, 1, 2, 0, 0, 2, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 1, 6, 6, 6, 0, 2, 2, 0, 2, 2, 0, 6, 6, 6, 2, 1, 1, 1, 2, 0, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 2, 2, 2, 2, 2, 6, 6, 0, 2, 2, 2, 2, 6, 2, 2, 2, 4, 6, 2, 6, 2, 2, 2, 6, 
+            6, 6, 2, 2, 2, 2, 6, 2, 6, 2, 2, 2, 6, 0, 6, 2, 2, 2, 6, 2]],
           ["SOCIAL DEMOCRACY",
            [6, 2, 6, 6, 0, 0, 6, 6, 0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 6, 6, 6, 6, 6, 6, 6, 2, 0, 2, 2, 6, 6, 6, 0, 6, 6, 2, 6, 6, 6, 6, 6, 6, 6, 2, 6, 2, 2, 1, 2, 6, 2, 6, 6, 6, 6, 6, 6, 2, 2, 6, 6, 6, 6, 6, 2, 2, 2, 6, 6, 6, 6, 2, 0, 2, 6, 6, 6, 2, 2, 6, 
             6, 6, 2, 2, 2, 6, 6, 2, 6, 6, 6, 6, 6, 0, 6, 6, 6, 6, 6, 6]],
