@@ -2,7 +2,7 @@ import {Dense, leakyRelu, mse, msePrime} from "./neuralnetwork.js"
 
 // HYPERPARAMETERS
 let epochs = 100;
-let lr = 0.5;
+let lr = 0.2;
 
 let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 7), new leakyRelu()];
 
