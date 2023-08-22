@@ -1,10 +1,10 @@
 import {Dense, leakyRelu, mse, msePrime} from "./neuralnetwork.js"
 
 // HYPERPARAMETERS
-let epochs = 100;
+let epochs = 1000;
 let lr = 0.2;
 
-let matchLayers = [new Dense(300, 200), new leakyRelu(), new Dense(200, 9), new leakyRelu()];
+let matchLayers = [new Dense(300, 600), new leakyRelu(), new Dense(600, 300), new leakyRelu(), new Dense(300, 200), new leakyRelu(), new Dense(200, 9), new leakyRelu()];
 
 let matchIdeologies = ["NULLISM", "APOLITICISM", "RIGHT-LIBERTARIANISM", "FASCISM", "HITLER'S NAZISM", "ANARCHO-COMMUNISM", "SOCIAL DEMOCRACY", "BLEEDING HEART LIBERTARIANISM", "NEOCONSERVATISM"]
 // 0 - YES, 1 - UNSURE, 2 - NO, 3 - YES/UNSURE, 4 - UNSURE/NO, 5 - YES/NO, 6 - YES/UNSURE/NO
